@@ -1,6 +1,13 @@
-# AI Cybersecurity Log Analyzer
-
 A beginner-friendly Python cybersecurity project that analyzes authentication logs, detects suspicious login activity, and uses AI to explain security alerts.
+
+## Tech Stack
+
+- Python
+- OpenAI API
+- python-dotenv
+- JSON
+- Git & GitHub
+- VS Code
 
 ## Features
 
@@ -12,6 +19,30 @@ A beginner-friendly Python cybersecurity project that analyzes authentication lo
 - Generates recommended security actions
 - Saves alerts to a JSON file
 - Generates a readable security report
+
+## How It Works
+
+1. Reads authentication logs from `data/sample.log`
+2. Detects repeated failed login attempts
+3. Identifies suspicious login activity
+4. Assigns a security severity level
+5. Sends detected alerts to OpenAI for analysis
+6. Generates recommended security actions
+7. Saves the results to `data/alerts.json`
+
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/sivaposani/AI-Cybersecurity-Log-Analyzer.git
+cd AI-Cybersecurity-Log-Analyzer
+
+### 2. Create a virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 
 ## Project Structure
 
