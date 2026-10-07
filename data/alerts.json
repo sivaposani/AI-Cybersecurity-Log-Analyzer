@@ -1,0 +1,39 @@
+[
+    {
+        "type": "BRUTE_FORCE",
+        "ip_address": "192.168.1.20",
+        "failed_attempts": 6,
+        "severity": "HIGH",
+        "ai_analysis": {
+            "threat_summary": "Six failed authentication attempts from internal IP 192.168.1.20 indicate a possible brute-force attack or misconfigured client.",
+            "risk_level": "HIGH",
+            "recommended_actions": [
+                "Identify the device or user associated with 192.168.1.20 and verify whether the activity is expected.",
+                "Review authentication logs for targeted accounts, timing, and any successful logins.",
+                "Apply rate limiting or temporarily block the source if the activity is unauthorized and ongoing.",
+                "Enforce or verify multi-factor authentication and reset affected credentials if compromise is suspected.",
+                "Continue monitoring for repeated attempts or activity from related addresses."
+            ],
+            "confidence": 0.9
+        }
+    },
+    {
+        "type": "SUSPICIOUS_LOGIN",
+        "ip_address": "192.168.1.20",
+        "username": "admin",
+        "previous_failed_attempts": 6,
+        "severity": "MEDIUM",
+        "ai_analysis": {
+            "threat_summary": "A suspicious login involving the admin account followed six failed attempts from a private-network IP address. This may indicate a mistyped password or attempted unauthorized access; the alert does not confirm whether a login succeeded.",
+            "risk_level": "MEDIUM",
+            "recommended_actions": [
+                "Check authentication logs to determine whether the login succeeded and review activity before and after it.",
+                "Confirm whether 192.168.1.20 is a known, authorized device.",
+                "If the activity is unauthorized or unexplained, block or isolate the source and reset the admin password.",
+                "Ensure multi-factor authentication is enabled for the admin account.",
+                "Monitor for additional failed attempts or unusual account activity."
+            ],
+            "confidence": 0.78
+        }
+    }
+]
