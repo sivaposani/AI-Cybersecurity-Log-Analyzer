@@ -4,18 +4,7 @@
         "ip_address": "192.168.1.20",
         "failed_attempts": 6,
         "severity": "HIGH",
-        "ai_analysis": {
-            "threat_summary": "Six failed authentication attempts from internal IP 192.168.1.20 indicate a possible brute-force attack or misconfigured client.",
-            "risk_level": "HIGH",
-            "recommended_actions": [
-                "Identify the device or user associated with 192.168.1.20 and verify whether the activity is expected.",
-                "Review authentication logs for targeted accounts, timing, and any successful logins.",
-                "Apply rate limiting or temporarily block the source if the activity is unauthorized and ongoing.",
-                "Enforce or verify multi-factor authentication and reset affected credentials if compromise is suspected.",
-                "Continue monitoring for repeated attempts or activity from related addresses."
-            ],
-            "confidence": 0.9
-        }
+        "ai_analysis": "1. **Meaning:** The system detected six failed login attempts from **192.168.1.20** and classified the activity as a high-severity brute-force alert.\n2. **Why suspicious:** Repeated failures may indicate someone guessing credentials. The address is private, so the activity originated inside the network\u2014or was attributed to an internal device.\n3. **Action:** Check authentication logs to identify the target account and timing, and confirm whether the device or user is expected. If unauthorized, contain the device, block or rate-limit further attempts, and secure affected accounts (reset credentials and enable MFA). Review for any successful logins afterward."
     },
     {
         "type": "SUSPICIOUS_LOGIN",
@@ -23,17 +12,6 @@
         "username": "admin",
         "previous_failed_attempts": 6,
         "severity": "MEDIUM",
-        "ai_analysis": {
-            "threat_summary": "A suspicious login involving the admin account followed six failed attempts from a private-network IP address. This may indicate a mistyped password or attempted unauthorized access; the alert does not confirm whether a login succeeded.",
-            "risk_level": "MEDIUM",
-            "recommended_actions": [
-                "Check authentication logs to determine whether the login succeeded and review activity before and after it.",
-                "Confirm whether 192.168.1.20 is a known, authorized device.",
-                "If the activity is unauthorized or unexplained, block or isolate the source and reset the admin password.",
-                "Ensure multi-factor authentication is enabled for the admin account.",
-                "Monitor for additional failed attempts or unusual account activity."
-            ],
-            "confidence": 0.78
-        }
+        "ai_analysis": "1. **Meaning:** A login involving the `admin` account from `192.168.1.20` was flagged as suspicious after six previous failed attempts. The alert alone doesn\u2019t confirm whether the login succeeded.\n\n2. **Why it\u2019s suspicious:** Repeated failures followed by a login can indicate password guessing or a compromised account. Since the IP is private, identify which internal device it belongs to.\n\n3. **Action:** Check authentication logs to confirm success, timing, and source device; verify whether the activity was expected. If unauthorized, disable or secure the account, reset its password, revoke active sessions, and investigate the source device. Ensure MFA and login rate limits are enabled."
     }
 ]

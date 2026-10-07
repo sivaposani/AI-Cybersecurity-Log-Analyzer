@@ -73,13 +73,5 @@ for alert in alerts:
         print("Username:", alert["username"])
 
     print("\nAI Analysis:")
-    print("Threat:", alert["ai_analysis"]["threat_summary"])
-    print("Risk Level:", alert["ai_analysis"]["risk_level"])
-    print("Confidence:", alert["ai_analysis"]["confidence"])
-
-    print("\nRecommended Actions:")
-    for action in alert["ai_analysis"]["recommended_actions"]:
-        print("-", action)
-
-print("\n===== REPORT COMPLETE =====")
-print("Alerts saved to data/alerts.json")
+    print(alert["ai_analysis"])
+    
