@@ -4,7 +4,7 @@
         "ip_address": "192.168.1.20",
         "failed_attempts": 6,
         "severity": "HIGH",
-        "ai_analysis": "1. **What it means:** Six login attempts from `192.168.1.20` failed, and the alert classifies the activity as high severity.\n\n2. **Why it\u2019s suspicious:** Repeated failures can indicate password guessing or a misconfigured device. Because this is a private IP, it likely belongs to an internal device\u2014but verify its owner and activity.\n\n3. **What to do:** Check authentication logs for the targeted account, time, and any later successful login. Identify the device at `192.168.1.20`; if the attempts are unauthorized, block or isolate it and reset affected credentials. Apply rate limits or account lockout controls."
+        "ai_analysis": "1. **What it means:** The system detected six failed login attempts from `192.168.1.20`. The alert classifies this as high severity.\n2. **Why it\u2019s suspicious:** Repeated failures may indicate password guessing or a compromised device. The IP is a private network address, so identify which internal device it belongs to; mistakes or automated services can also cause repeated failures.\n3. **What to do:** Check the affected account, service, timestamps, and nearby login events for a successful sign-in. Verify the device and user with its owner. If the activity is unauthorized, contain the device or block its access, secure the account (reset credentials and revoke sessions), and escalate per incident-response procedures."
     },
     {
         "type": "SUSPICIOUS_LOGIN",
@@ -12,6 +12,6 @@
         "username": "admin",
         "previous_failed_attempts": 6,
         "severity": "MEDIUM",
-        "ai_analysis": "1. **What it means:** An `admin` login was flagged from `192.168.1.20` after six failed attempts.\n2. **Why it\u2019s suspicious:** Repeated failures followed by a login can indicate password guessing or a mistyped password. The address is private/internal, but could still belong to an unauthorized or compromised device.\n3. **What to do:** Check the login time, device, and authentication logs; confirm with the admin whether it was expected. If not, disable or lock the account, revoke active sessions, reset the password, and investigate the source device."
+        "ai_analysis": "1. **Meaning:** The `admin` account had a login from `192.168.1.20` after six failed attempts. The alert is rated medium severity.\n2. **Why suspicious:** Repeated failures followed by a successful login can indicate password guessing or a compromised password. The IP is private, so identify which device or user it belongs to; it may be legitimate.\n3. **Action:** Check the login time, device, location, and related activity, and confirm with the account owner. If unrecognized, disable or secure the account, reset its password, revoke active sessions, enforce MFA, and review the logs."
     }
 ]
