@@ -28,11 +28,28 @@ try:
             action = parts[4]
             result = parts[5]
 
+            # Validate the log entry
+            try:
+                datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")
+            except ValueError:
+                print(f"Warning: Invalid timestamp at line {line_number}")
+                continue
+
+            if action != "LOGIN" or result not in ("SUCCESS", "FAILED"):
+                print(f"Warning: Invalid login event at line {line_number}")
+                continue
+
+            if not username or not ip_address:
+                print(f"Warning: Missing username or IP at line {line_number}")
+                continue
+
+            # Count failed login attempts
             if action == "LOGIN" and result == "FAILED":
                 failed_logins[ip_address] = (
                     failed_logins.get(ip_address, 0) + 1
                 )
 
+            # Detect suspicious successful logins
             elif action == "LOGIN" and result == "SUCCESS":
                 previous_failures = failed_logins.get(ip_address, 0)
 
