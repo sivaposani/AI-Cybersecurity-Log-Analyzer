@@ -44,6 +44,31 @@ cd AI-Cybersecurity-Log-Analyzer
 python3 -m venv .venv
 source .venv/bin/activate
 
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+
+### 4. Configure the OpenAI API key
+
+Create a `.env` file in the project root and add:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+```
+
+Replace `your_api_key_here` with your OpenAI API key.
+
+Do not commit or share your API key.
+
+### 5. Run the project
+
+From the project root, activate your virtual environment and run:
+
+```bash
+python -m backend.main
+```
+
 ## Project Structure
 
 ```text
