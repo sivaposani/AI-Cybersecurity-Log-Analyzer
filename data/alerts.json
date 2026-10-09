@@ -4,7 +4,7 @@
         "ip_address": "192.168.1.20",
         "failed_attempts": 6,
         "severity": "HIGH",
-        "ai_analysis": "1. **Meaning:** Six failed login attempts were detected from `192.168.1.20`, and the alert is rated **HIGH**.\n2. **Why it\u2019s suspicious:** Repeated failures may indicate password guessing or a compromised internal device. The address is private, so identify which device it belongs to; the attempts could also be user error.\n3. **Action:** Check the affected account, login times, and source device. Confirm with the user or device owner, review related logs for successful logins, and isolate or block the source if activity is unauthorized. Reset credentials and secure the account if compromise is suspected."
+        "ai_analysis": "1. **Meaning:** Six failed login attempts were detected from `192.168.1.20`, and the alert is rated **high severity**.\n2. **Why it\u2019s suspicious:** Repeated failures can indicate password guessing or a compromised device. The IP is private/internal, so it may be a user device or another system on your network\u2014not necessarily an external attacker.\n3. **Action:** Check the affected account, target system, timestamps, and authentication logs. Verify whether the activity was expected. If not, contain the source device, secure the account (reset its password and review MFA), and block or rate-limit further attempts as appropriate. Avoid locking out users or blocking the IP before confirming the impact."
     },
     {
         "type": "SUSPICIOUS_LOGIN",
@@ -12,6 +12,6 @@
         "username": "admin",
         "previous_failed_attempts": 6,
         "severity": "MEDIUM",
-        "ai_analysis": "1. **Meaning:** A login involving the `admin` account was flagged as suspicious. The alert also reports six earlier failed attempts from `192.168.1.20`; it doesn\u2019t say whether the flagged login succeeded.\n2. **Why suspicious:** Repeated failures followed by a login can indicate password guessing or a compromised account. The address is private/internal, but that doesn\u2019t make the activity safe.\n3. **Action:** Check authentication logs to confirm the login\u2019s time, outcome, device, and whether it was expected. If unrecognized, revoke active sessions, reset the admin password, verify MFA, and investigate or isolate the source device."
+        "ai_analysis": "1. **What it means:** A login involving the `admin` account from internal IP `192.168.1.20` was flagged. The account had six previous failed attempts; the alert doesn\u2019t specify whether a login succeeded.\n\n2. **Why it\u2019s suspicious:** Repeated failures followed by a flagged login can indicate password guessing or a compromised account. Because the IP is private, identify the device on your network rather than treating it as an internet source.\n\n3. **What to do:** Check authentication logs and confirm whether the login succeeded, when it occurred, and which device used that IP. Verify the activity with the admin. If it\u2019s unauthorized, disable or secure the account, reset its password, revoke active sessions, and investigate the source device."
     }
 ]

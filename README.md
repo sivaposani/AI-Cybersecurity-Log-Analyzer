@@ -89,3 +89,9 @@ AI-Cybersecurity-Log-Analyzer/
 ├── .gitignore
 ├── .env
 └── README.md
+
+## Security Alert Report
+
+The screenshot below shows the analyzer detecting a brute-force pattern and a suspicious login, with AI-generated explanations and recommended actions.
+
+![Security Alert Report](docs/screenshots/security-alert-report.png)
